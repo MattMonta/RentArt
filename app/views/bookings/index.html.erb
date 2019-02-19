@@ -1,0 +1,5 @@
+<h1>Test</h1>
+<%= form_for [@artwork, @booking] do |f| %>
+  <%= f.input :status %>
+  <%= f.submit "book an artwork", class: "btn btn-primary" %>
+<% end %>

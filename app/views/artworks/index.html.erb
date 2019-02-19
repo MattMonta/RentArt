@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h1> Artworks </h1>
+
+  <div class="row">
+    <% @artworks.each do |artwork|  %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: url('<%= cl_image_path artwork.photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-description">
+
+            <h2>
+              <% if policy(Artwork).show? %>
+              <%= link_to artwork.name, artwork_path(artwork) %>
+              <% end %>
+            </h2>
+            <p><%= artwork.category %></p>
+            <p><%= artwork.user.name %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+

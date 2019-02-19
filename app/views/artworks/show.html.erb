@@ -1,0 +1,26 @@
+<h1> <%= @artwork.name %> </h1>
+
+  <%= cl_image_tag @artwork.photo, height: 300, width: 400, crop: :fill %>
+  <%= @artwork.category %>
+  <%= @artwork.availability %>
+   <p>Available from :<%= @artwork.start_date %></p>
+  <p>to : <%= @artwork.end_date %></p>
+  <p>Available from :<%= @artwork.start_date %></p>
+  <p>to : <%= @artwork.end_date %></p>
+  <% if policy(@artwork).edit? %>
+    <%= link_to  edit_artwork_path(@artwork) do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+  <% end %>
+
+
+<%= link_to 'back', artworks_path %>
+
+<h3>Made by:</h3>
+<p><%= @artwork.user.name %></p>
+<%if @artwork.user.artist %>
+  <p>Artist (<%= @artwork.user.category %>)</p>
+<%else %>
+  <p>Host (<p><%= @artwork.user.category %></p>)</p>
+<%end %>
+
